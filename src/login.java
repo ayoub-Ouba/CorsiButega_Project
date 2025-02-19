@@ -2,10 +2,14 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.border.Border;
+import org.mindrot.jbcrypt.BCrypt;
+ 
 
 public class login extends JFrame {
 
     private static final long serialVersionUID = 1L;
+    private db_authentification dbService = new db_authentification();
+
 
     public login() {
         setTitle("Login");
@@ -119,8 +123,14 @@ public class login extends JFrame {
                     return;
                 }
 
-                // Logique de connexion
-                JOptionPane.showMessageDialog(null, "Email: " + email + "\nPassword: " + password);
+                // Authentification
+                if (dbService.authenticate(email, password)) {
+                    JOptionPane.showMessageDialog(null, "Connexion réussie !");
+                } else {
+                        // Remplace par ton mot de passe
+                     
+                    JOptionPane.showMessageDialog(null, "Email ou mot de passe incorrect.");
+                }
             }
         });
 

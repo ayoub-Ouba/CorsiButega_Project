@@ -56,7 +56,7 @@ public class login extends JFrame {
         emailField.setPreferredSize(new Dimension(400, 35));
         emailField.setBorder(new RoundedBorder(10, "I"));
         emailField.setForeground(Color.GRAY);
-        emailField.setText("Email"); // Placeholder
+        emailField.setText("Email"); 
 
         emailField.addFocusListener(new FocusListener() {
             @Override
@@ -127,7 +127,6 @@ public class login extends JFrame {
                 if (dbService.authenticate(email, password)) {
                     JOptionPane.showMessageDialog(null, "Connexion réussie !");
                 } else {
-                        // Remplace par ton mot de passe
                      
                     JOptionPane.showMessageDialog(null, "Email ou mot de passe incorrect.");
                 }
